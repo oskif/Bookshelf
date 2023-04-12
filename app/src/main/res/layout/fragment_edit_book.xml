@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.editbook.EditBookFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <EditText
+            android:id="@+id/inputAuthorET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:inputType="text"
+
+            android:hint="Podaj autora..." />
+
+        <EditText
+            android:id="@+id/inputTitleET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:inputType="text"
+            android:hint="Podaj tytuł..."/>
+
+        <EditText
+            android:id="@+id/inputDescriptionET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:height="30dp"
+            android:inputType="textMultiLine"
+            android:minLines="8"
+            android:maxLines="8"
+            android:scrollbars="vertical"
+            android:hint="Podaj opis..."/>
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/isReadCB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Przeczytana" />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/saveBookBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="48dp"
+        app:srcCompat="@drawable/ic_baseline_check_24" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

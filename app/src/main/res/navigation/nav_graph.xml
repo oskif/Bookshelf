@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/LoginFragment">
+
+    <fragment
+        android:id="@+id/LoginFragment"
+        android:name="com.example.bookshelf.ui.login.LoginFragment"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_LoginFragment_to_BookFragment"
+            app:destination="@id/BooksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/BooksFragment"
+        android:name="com.example.bookshelf.ui.books.BooksFragment"
+        tools:layout="@layout/fragment_books">
+
+        <action
+            android:id="@+id/action_BooksFragment_to_LoginFragment"
+            app:destination="@id/LoginFragment" />
+        <action
+            android:id="@+id/action_BooksFragment_to_addBookFragment"
+            app:destination="@id/addBookFragment" />
+        <action
+            android:id="@+id/action_BooksFragment_to_bookInfoFragment"
+            app:destination="@id/bookInfoFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/addBookFragment"
+        android:name="com.example.bookshelf.ui.addbook.AddBookFragment">
+        <action
+            android:id="@+id/action_addBookFragment_to_BooksFragment"
+            app:destination="@id/BooksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookInfoFragment"
+        android:name="com.example.bookshelf.ui.bookinfo.BookInfoFragment"
+        tools:layout="@layout/fragment_book_info" >
+        <argument
+            android:name="bookId"
+            app:argType="string" />
+        <argument
+            android:name="bookAuthor"
+            app:argType="string" />
+        <argument
+            android:name="bookTitle"
+            app:argType="string" />
+        <argument
+            android:name="bookDescription"
+            app:argType="string" />
+        <argument
+            android:name="bookIsRead"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_bookInfoFragment_to_BooksFragment"
+            app:destination="@id/BooksFragment" />
+        <action
+            android:id="@+id/action_bookInfoFragment_to_editBookFragment"
+            app:destination="@id/editBookFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editBookFragment"
+        android:name="com.example.bookshelf.ui.editbook.EditBookFragment"
+        tools:layout="@layout/fragment_edit_book" >
+        <argument
+            android:name="bookId"
+            app:argType="string" />
+        <argument
+            android:name="bookAuthor"
+            app:argType="string" />
+        <argument
+            android:name="bookTitle"
+            app:argType="string" />
+        <argument
+            android:name="bookDescription"
+            app:argType="string" />
+        <argument
+            android:name="bookIsRead"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_editBookFragment_to_bookInfoFragment"
+            app:destination="@id/bookInfoFragment" />
+    </fragment>
+</navigation>
