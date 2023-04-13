@@ -12,17 +12,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookshelf.R
 import com.example.bookshelf.databinding.FragmentBooksBinding
+import com.example.bookshelf.databinding.FragmentBooksSeniorBinding
 import com.example.bookshelf.ui.addbook.BookModel
 import com.google.firebase.database.*
 
-class BooksFragment : Fragment() {
+class BooksFragmentSenior : Fragment() {
 
-    private var _binding: FragmentBooksBinding? = null
+    private var _binding: FragmentBooksSeniorBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var books: ArrayList<BookModel>
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: BooksAdapter
+    private lateinit var adapter: BooksAdapterSenior
 
     private lateinit var dbReference: DatabaseReference
 
@@ -31,7 +32,7 @@ class BooksFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentBooksBinding.inflate(inflater, container, false)
+        _binding = FragmentBooksSeniorBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -39,7 +40,7 @@ class BooksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.addBookBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_BooksFragment_to_addBookFragment)
+            findNavController().navigate(R.id.action_booksFragmentSenior_to_addBookSeniorFragment)
         }
         books = arrayListOf()
         initData()
@@ -63,7 +64,7 @@ class BooksFragment : Fragment() {
                         val bookData = bookSnapshot.getValue(BookModel::class.java)
                         books.add(bookData!!)
                     }
-                    adapter = BooksAdapter(books.sortedByDescending {
+                    adapter = BooksAdapterSenior(books.sortedByDescending {
                         it.isRead
                     })
                     recyclerView.adapter = adapter

@@ -11,12 +11,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.bookshelf.R
 import com.example.bookshelf.databinding.FragmentAddBookBinding
+import com.example.bookshelf.databinding.FragmentAddBookSeniorBinding
 import com.example.bookshelf.ui.bookinfo.BookInfoFragmentDirections
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class AddBookFragment : Fragment() {
-    private var _binding: FragmentAddBookBinding? = null
+class AddBookSeniorFragment : Fragment() {
+    private var _binding: FragmentAddBookSeniorBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var titleET: EditText
@@ -29,7 +30,7 @@ class AddBookFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentAddBookBinding.inflate(inflater, container, false)
+        _binding = FragmentAddBookSeniorBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -64,7 +65,7 @@ class AddBookFragment : Fragment() {
         val book = BookModel(bookId, title, isRead)
         dbReference.child(bookId).setValue(book)
             .addOnCompleteListener {
-                val action = AddBookFragmentDirections.actionAddBookFragmentToBooksFragment()
+                val action = AddBookSeniorFragmentDirections.actionAddBookSeniorFragmentToBooksFragmentSenior()
                 findNavController().navigate(action)
             }.addOnFailureListener { error ->
                 Toast.makeText(this.context, "${error.message}", Toast.LENGTH_SHORT).show()

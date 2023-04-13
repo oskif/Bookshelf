@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.addbook.AddBookFragment">
+    tools:context=".ui.bookinfo.BookInfoFragmentSenior">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:background="#1a1c1e">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/container"
-            android:padding="8dp">
+            android:background="#e2e2e5"
+            android:padding="8dp"
+            >
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -31,6 +33,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#001e31"
+                    android:background="#ffffff"
+                    android:textSize="30sp"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -39,21 +43,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#001e31"
-                android:text="Przeczytane"
+                android:text="Naciśnij jeżeli przeczytane"
                 android:buttonTint="#001e31"
-
+                android:textSize="22sp"
                 />
         </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/saveBookBtn"
+            android:layout_marginTop="10dp"
+            android:text="Zapisz"
+            android:padding="8dp"
+            android:textSize="24sp"
+            android:backgroundTint="#e2e2e5"
+            android:textColor="#1a1c1e"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/deleteBookBtn"
+            android:layout_marginTop="10dp"
+            android:text="Usuń"
+            android:padding="8dp"
+            android:textSize="24sp"
+            android:backgroundTint="#e2e2e5"
+            android:textColor="#1a1c1e"/>
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/saveBookBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="64dp"
-        app:srcCompat="@drawable/ic_baseline_check_24" />
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>

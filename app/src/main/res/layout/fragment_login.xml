@@ -34,7 +34,8 @@
                 android:id="@+id/loginET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="test@test.pl"/>
+                android:text="test@test.pl"
+                android:textColor="#001e31"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -49,9 +50,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="123456"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword"
+                android:textColor="#001e31"/>
         </com.google.android.material.textfield.TextInputLayout>
-
 
         <Button
             android:id="@+id/loginBtn"
@@ -60,7 +61,16 @@
             android:layout_margin="8dp"
             android:padding="10dp"
             android:textSize="20sp"
-            android:text="Login"/>
+            android:text="Login"
+            />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="UseSwitchCompatOrMaterialXml"
+            android:id="@+id/modeSwitch"
+            android:text="Tryb dla seniora"
+            android:textColor="#001e31"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

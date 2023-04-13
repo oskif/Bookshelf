@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Switch
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.bookshelf.R
@@ -15,6 +16,8 @@ class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var modeSwitch : Switch
 
     private lateinit var firebaseAuth: FirebaseAuth
 
@@ -34,10 +37,19 @@ class LoginFragment : Fragment() {
             val email = binding.loginET.text.toString()
             val password = binding.passwordET.text.toString()
 
+            //val modeSwitch = binding.modeSwitch.isChecked
+
+            modeSwitch = binding.modeSwitch
+
             if(email.isNotEmpty() && password.isNotEmpty()){
                 firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener{
                     if(it.isSuccessful){
-                        findNavController().navigate(R.id.action_LoginFragment_to_BookFragment)
+                        if (modeSwitch.isChecked){
+                            Toast.makeText(this.context,"xd",Toast.LENGTH_SHORT).show()
+                            findNavController().navigate(R.id.action_LoginFragment_to_booksFragmentSenior)
+                        }else{
+                            findNavController().navigate(R.id.action_LoginFragment_to_BookFragment)
+                        }
                     }
                     else{
                         Toast.makeText(this.context, "Zły e-mail lub hasło", Toast.LENGTH_SHORT).show()

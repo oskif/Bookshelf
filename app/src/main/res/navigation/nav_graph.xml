@@ -13,15 +13,15 @@
         <action
             android:id="@+id/action_LoginFragment_to_BookFragment"
             app:destination="@id/BooksFragment" />
+        <action
+            android:id="@+id/action_LoginFragment_to_booksFragmentSenior"
+            app:destination="@id/booksFragmentSenior" />
     </fragment>
     <fragment
         android:id="@+id/BooksFragment"
         android:name="com.example.bookshelf.ui.books.BooksFragment"
         tools:layout="@layout/fragment_books">
 
-        <action
-            android:id="@+id/action_BooksFragment_to_LoginFragment"
-            app:destination="@id/LoginFragment" />
         <action
             android:id="@+id/action_BooksFragment_to_addBookFragment"
             app:destination="@id/addBookFragment" />
@@ -45,13 +45,7 @@
             android:name="bookId"
             app:argType="string" />
         <argument
-            android:name="bookAuthor"
-            app:argType="string" />
-        <argument
             android:name="bookTitle"
-            app:argType="string" />
-        <argument
-            android:name="bookDescription"
             app:argType="string" />
         <argument
             android:name="bookIsRead"
@@ -59,31 +53,41 @@
         <action
             android:id="@+id/action_bookInfoFragment_to_BooksFragment"
             app:destination="@id/BooksFragment" />
-        <action
-            android:id="@+id/action_bookInfoFragment_to_editBookFragment"
-            app:destination="@id/editBookFragment" />
     </fragment>
     <fragment
-        android:id="@+id/editBookFragment"
-        android:name="com.example.bookshelf.ui.editbook.EditBookFragment"
-        tools:layout="@layout/fragment_edit_book" >
+        android:id="@+id/booksFragmentSenior"
+        android:name="com.example.bookshelf.ui.books.BooksFragmentSenior"
+        tools:layout="@layout/fragment_books_senior" >
+        <action
+            android:id="@+id/action_booksFragmentSenior_to_addBookSeniorFragment"
+            app:destination="@id/addBookSeniorFragment" />
+        <action
+            android:id="@+id/action_booksFragmentSenior_to_bookInfoFragmentSenior"
+            app:destination="@id/bookInfoFragmentSenior" />
+    </fragment>
+    <fragment
+        android:id="@+id/addBookSeniorFragment"
+        android:name="com.example.bookshelf.ui.addbook.AddBookSeniorFragment"
+        tools:layout="@layout/fragment_add_book_senior" >
+        <action
+            android:id="@+id/action_addBookSeniorFragment_to_booksFragmentSenior"
+            app:destination="@id/booksFragmentSenior" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookInfoFragmentSenior"
+        android:name="com.example.bookshelf.ui.bookinfo.BookInfoFragmentSenior"
+        tools:layout="@layout/fragment_book_info_senior" >
         <argument
             android:name="bookId"
-            app:argType="string" />
-        <argument
-            android:name="bookAuthor"
             app:argType="string" />
         <argument
             android:name="bookTitle"
             app:argType="string" />
         <argument
-            android:name="bookDescription"
-            app:argType="string" />
-        <argument
             android:name="bookIsRead"
             app:argType="boolean" />
         <action
-            android:id="@+id/action_editBookFragment_to_bookInfoFragment"
-            app:destination="@id/bookInfoFragment" />
+            android:id="@+id/action_bookInfoFragmentSenior_to_booksFragmentSenior"
+            app:destination="@id/booksFragmentSenior" />
     </fragment>
 </navigation>

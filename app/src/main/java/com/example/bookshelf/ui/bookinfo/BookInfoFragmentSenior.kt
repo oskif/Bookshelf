@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.SearchView
 import android.widget.Toast
@@ -14,12 +13,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.bookshelf.R
 import com.example.bookshelf.databinding.FragmentBookInfoBinding
+import com.example.bookshelf.databinding.FragmentBookInfoSeniorBinding
 import com.example.bookshelf.ui.addbook.BookModel
 import com.example.bookshelf.ui.books.BooksFragmentDirections
 import com.google.firebase.database.FirebaseDatabase
 
-class BookInfoFragment : Fragment() {
-    private var _binding: FragmentBookInfoBinding? = null
+class BookInfoFragmentSenior : Fragment() {
+    private var _binding: FragmentBookInfoSeniorBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var titleET: EditText
@@ -31,7 +31,7 @@ class BookInfoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentBookInfoBinding.inflate(inflater, container, false)
+        _binding = FragmentBookInfoSeniorBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -63,7 +63,7 @@ class BookInfoFragment : Fragment() {
         val bookIsRead = binding.bookIsRead.isChecked
         updateBook(args.bookId, bookTitle, bookIsRead)
 
-        val action = BookInfoFragmentDirections.actionBookInfoFragmentToBooksFragment()
+        val action = BookInfoFragmentSeniorDirections.actionBookInfoFragmentSeniorToBooksFragmentSenior()
         findNavController().navigate(action)
     }
 
@@ -73,7 +73,7 @@ class BookInfoFragment : Fragment() {
 
         deleteTask.addOnSuccessListener {
             Toast.makeText(this.context, "Książka została usunięta", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_bookInfoFragment_to_BooksFragment)
+            findNavController().navigate(R.id.action_bookInfoFragmentSenior_to_booksFragmentSenior)
         }.addOnFailureListener { error ->
             Toast.makeText(this.context, "${error.message}", Toast.LENGTH_SHORT).show()
         }

@@ -9,40 +9,53 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="8dp"
-        >
+        android:orientation="horizontal"
+        android:padding="8dp">
 
-        <TextView
-            android:id="@+id/authorTV"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            />
+            android:background="@drawable/container"
+            android:orientation="vertical"
+            android:padding="8dp">
 
-        <TextView
-            android:id="@+id/TitleTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:hint="Tytuł"
+                app:errorEnabled="true">
 
-        <TextView
-            android:id="@+id/descriptionTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/bookTitleET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="text"
+                    android:textColor="#001e31" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <CheckBox
+                android:id="@+id/bookIsRead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#001e31"
+                android:text="Przeczytane"
+                android:textColor="#001e31"
+
+                />
+        </LinearLayout>
+
+
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/editBookBtn"
+        android:id="@+id/saveBookBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="48dp"
-        app:srcCompat="@drawable/ic_baseline_pencil" />
+        android:layout_marginBottom="64dp"
+        app:srcCompat="@drawable/ic_baseline_check_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/deleteBookBtn"
@@ -50,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
         android:layout_marginLeft="16dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="64dp"
         app:srcCompat="@drawable/ic_baseline_trash" />
 
 </FrameLayout>
